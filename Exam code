@@ -1,0 +1,9 @@
+library(vegan)
+
+#setting the working directory
+setwd("/Users/gioele/lab/")
+
+gra=read.table("/Users/gioele/lab/308grano.csv",header=T,sep=";")
+gra
+
+multivar<-decorana(gra)
