@@ -7,3 +7,7 @@ gra=read.table("/Users/gioele/lab/308grano.csv",header=T,sep=";")
 gra
 
 multivar<-decorana(gra)
+multivar
+
+plot(multivar)
+
