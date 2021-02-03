@@ -1,0 +1,9 @@
+library(vegan)
+
+trees
+tres<-trees
+
+multivar<-decorana(tres)
+multivar
+plot(multivar)
+
