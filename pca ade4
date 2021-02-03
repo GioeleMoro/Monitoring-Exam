@@ -1,0 +1,14 @@
+install.packages("ggplot2")
+install.packages("cluster")
+library(ggplot2)
+library(cluster)
+install.packages("factoextra")
+library(factoextra)
+
+
+setwd("/Users/gioele/lab/")
+
+gra<-read.csv("grano308.csv", header=TRUE, row.names=1, sep=",")
+
+
+
