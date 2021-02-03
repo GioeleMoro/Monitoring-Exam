@@ -3,11 +3,16 @@ library(vegan)
 #setting the working directory
 setwd("/Users/gioele/lab/")
 
-gra=read.table("/Users/gioele/lab/308grano.csv",header=T,sep=";")
+gra <- read.table("/Users/gioele/lab/308grano.csv",header=T,sep=";")
 gra
 
 multivar<-decorana(gra)
 multivar
 
 plot(multivar)
+
+
+attach(gra)
+ordiellipse(multivar, 4, col=c("red","blue"),kind="ehull",lwd=3)
+
 
