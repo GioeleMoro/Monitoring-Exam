@@ -1,14 +1,77 @@
-install.packages("ggplot2")
-install.packages("cluster")
+#intsall packages needed
+
+intsall.packages("ggplot2")
+intsall.packages("cluster")
+intsall.packages("ade4")
+intsall.packages("factoextra")
+
+#recall the libraries
+
 library(ggplot2)
 library(cluster)
-install.packages("factoextra")
+library(ade4)
 library(factoextra)
 
+#set the working directory
 
 setwd("/Users/gioele/lab/")
 
-gra<-read.csv("grano308.csv", header=TRUE, row.names=1, sep=",")
+#read the table (csv)
 
+gra<-read.csv("grano308.csv",row.names=1,header=T,sep=",")
 
+#compactly display the (abbreviated) contents of (possibly nested) lists
 
+str(gra)
+
+#produce result summaries
+
+summary(gra)
+
+#principal component analysis
+
+pca_gra<-dudi.pca(gra[,-5],scannf=F,nf=3)
+pca_gra
+
+#eigenvalues
+
+get_eig(pca_gra)
+
+#plot the eigenvalues/variances against the number of dimensions
+# and get an histogram for the eigenvalues in png
+
+png("eigen308.png",width=9,height=9,units='in',res=300)
+fviz_eig(pca_gra)
+
+dev.off()
+#dev.off() is needed each time after the png function, to stop saving stuff in png
+
+#Principal component analysis (PCA) reduces the dimensionality of multivariate data and get the png
+
+png("PCA_col_308.png",width=9,height=9,units='in',res=300)
+fviz_pca_ind(pca_gra,col.ind="coord",gradient.cols=c("#00AFBB","#E7B800","#FC4E07"), repel=T)
+
+dev.off()
+
+#to get objects in the database to be accessed by simply giving their names
+
+attach(gra)
+category
+
+#compactly display the (abbreviated) contents of (possibly nested) lists
+
+str(category)
+
+#get the same pca of before but using habillage to color the observations by groups (in this case for category)
+
+png("PCA_cat_308.png",width =9, height =9, units ='in', res = 300)
+fviz_pca_ind(pca_gra, habillage=category,colorRamppalette=c("firebrick4","darkorange1"),addEllipses = T, repel=T)
+
+dev.off()
+
+#now remove the name of the genotypes to get a more clear graph
+
+png("PCA_ax_point_308.png",width =9, height =9, units ='in', res = 300)
+fviz_pca_biplot(pca_gra, geom="point", habillage=category,palette=c("firebrick4","darkorange1"),addEllipses = T, repel=T,col.var="darkblue") 
+
+dev.off()
