@@ -68,10 +68,3 @@ png("PCA_cat_308.png",width =9, height =9, units ='in', res = 300)
 fviz_pca_ind(pca_gra, habillage=category,colorRamppalette=c("firebrick4","darkorange1"),addEllipses = T, repel=T)
 
 dev.off()
-
-#now remove the name of the genotypes to get a more clear graph
-
-png("PCA_ax_point_308.png",width =9, height =9, units ='in', res = 300)
-fviz_pca_biplot(pca_gra, geom="point", habillage=category,palette=c("firebrick4","darkorange1"),addEllipses = T, repel=T,col.var="darkblue") 
-
-dev.off()
