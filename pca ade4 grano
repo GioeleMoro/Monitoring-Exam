@@ -1,9 +1,9 @@
-#intsall packages needed
+#install packages needed
 
-intsall.packages("ggplot2")
-intsall.packages("cluster")
-intsall.packages("ade4")
-intsall.packages("factoextra")
+install.packages("ggplot2")
+install.packages("cluster")
+install.packages("ade4")
+install.packages("factoextra")
 
 #recall the libraries
 
