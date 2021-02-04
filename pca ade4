@@ -20,10 +20,6 @@ setwd("/Users/gioele/lab/")
 
 gra<-read.csv("grano308.csv",row.names=1,header=T,sep=",")
 
-#compactly display the (abbreviated) contents of (possibly nested) lists
-
-str(gra)
-
 #produce result summaries
 
 summary(gra)
@@ -57,10 +53,6 @@ dev.off()
 
 attach(gra)
 category
-
-#compactly display the (abbreviated) contents of (possibly nested) lists
-
-str(category)
 
 #get the same pca of before but using habillage to color the observations by groups (in this case for category)
 
