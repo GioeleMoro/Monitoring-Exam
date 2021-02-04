@@ -1,5 +1,5 @@
-#intsall the required packages
-intsall.packages(vegan)
+#install the required packages
+install.packages(vegan)
 
 #recall library
 library(vegan)
