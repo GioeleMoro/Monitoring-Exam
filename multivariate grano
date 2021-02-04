@@ -1,18 +1,22 @@
+#intsall the required packages
+intsall.packages(vegan)
+
+#recall library
 library(vegan)
 
 #setting the working directory
 setwd("/Users/gioele/lab/")
 
+#read the table (csv)
 gra <- read.table("/Users/gioele/lab/308grano.csv",header=T,sep=";")
 gra
 
+#create the multivar analysi and plot it
 multivar<-decorana(gra)
 multivar
 
 plot(multivar)
 
 
-attach(gra)
-ordiellipse(multivar, 4, col=c("red","blue"),kind="ehull",lwd=3)
 
 
